@@ -1,0 +1,77 @@
+{
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.tabSize": 2
+  },
+  "[powershell]": {
+    "editor.defaultFormatter": "ms-vscode.powershell",
+    "editor.semanticHighlighting.enabled": false
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.tabSize": 2
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml",
+    "editor.tabSize": 2
+  },
+  "cSpell.dictionaries": [
+    "en_US",
+    "misc",
+    "powershell",
+    "softwareTerms"
+  ],
+  "cSpell.ignorePaths": [
+    ".devcontainer/",
+    ".vscode",
+    ".vscode-insiders"
+  ],
+  "cSpell.spellCheckOnlyWorkspaceFiles": true,
+  "cSpell.useGitignore": true,
+  "cSpell.words": [
+    "devcontainer",
+    "devcontainers",
+    "freshservice"
+  ],
+  "editor.formatOnSave": true,
+  "editor.tabSize": 4,
+  "files.associations": {
+    "*.ps1xml": "xml"
+  },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "powershell.codeFormatting.addWhitespaceAroundPipe": true,
+  "powershell.codeFormatting.alignPropertyValuePairs": true,
+  "powershell.codeFormatting.avoidSemicolonsAsLineTerminators": true,
+  "powershell.codeFormatting.ignoreOneLineBlock": true,
+  "powershell.codeFormatting.newLineAfterCloseBrace": false,
+  "powershell.codeFormatting.newLineAfterOpenBrace": true,
+  "powershell.codeFormatting.openBraceOnSameLine": true,
+  "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationForFirstPipeline",
+  "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
+  "powershell.codeFormatting.useConstantStrings": true,
+  "powershell.codeFormatting.useCorrectCasing": true,
+  "powershell.codeFormatting.whitespaceAfterSeparator": true,
+  "powershell.codeFormatting.whitespaceAroundOperator": true,
+  "powershell.codeFormatting.whitespaceBeforeOpenBrace": true,
+  "powershell.codeFormatting.whitespaceBeforeOpenParen": true,
+  "powershell.codeFormatting.whitespaceBetweenParameters": true,
+  "powershell.codeFormatting.whitespaceInsideBrace": true,
+  "powershell.integratedConsole.showOnStartup": false,
+  "powershell.integratedConsole.startInBackground": true,
+  "powershell.scriptAnalysis.enable": true,
+  "powershell.scriptAnalysis.settingsPath": "PSScriptAnalyzerSettings.psd1",
+  "powershell.startAsLoginShell.linux": true,
+  "powershell.startAsLoginShell.osx": true,
+  "powershell.startAutomatically": true,
+  "xml.fileAssociations": [
+    {
+      "systemId": "https://raw.githubusercontent.com/PowerShell/PowerShell/master/src/Schemas/Format.xsd",
+      "pattern": "**/*.Format.ps1xml"
+    },
+    {
+      "systemId": "https://raw.githubusercontent.com/PowerShell/PowerShell/master/src/Schemas/Types.xsd",
+      "pattern": "**/*.Types.ps1xml"
+    }
+  ]
+}

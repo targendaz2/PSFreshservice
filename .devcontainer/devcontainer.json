@@ -1,0 +1,24 @@
+{
+  "name": "Debian",
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": "../"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "streetsidesoftware.code-spell-checker",
+        "ms-azuretools.vscode-docker",
+        "github.vscode-github-actions",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "VisualStudioExptTeam.vscodeintellicode-completions",
+        "DavidAnson.vscode-markdownlint",
+        "ms-vscode.powershell",
+        "shardulm94.trailing-spaces",
+        "redhat.vscode-xml",
+        "redhat.vscode-yaml"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}
