@@ -13,14 +13,16 @@ function Invoke-FsRequest {
     )
 
     $Response = Invoke-WebRequest `
-        -Uri "$($FsUrl)/$($Resource)" `
+        -Uri "$($FsUrl)$($Resource)" `
         -Headers @{ Authorization = "Basic $FsCredential" } `
         -Method $Method `
-        -ContentType 'application/json'
+        -ContentType 'application/json' `
+        -Confirm:$ConfirmPreference `
+        -WhatIf:$WhatIfPreference
 
-    if ($Response.StatusCode -ne 200) {
-        Write-Error 'Unable to complete request'
-    } else {
-        $Response.Content
+    switch ($Response.StatusCode) {
+        200 { $Response.Content }
+        204 { return }
+        default { Write-Error 'Unable to complete request' }
     }
 }

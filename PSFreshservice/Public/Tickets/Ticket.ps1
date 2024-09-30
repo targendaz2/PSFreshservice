@@ -25,28 +25,28 @@ enum FsTicketOrderType {
 
 enum FsTicketPriority {
     Low = 1
-    Medium
-    High
+    Medium = 2
+    High = 3
     Urgent = 4
 }
 
 enum FsTicketSource {
     Email = 1
-    Portal
-    Phone
-    Chat
-    FeedbackWidget
-    Yammer
-    AwsCloudwatch
-    Pagerduty
-    Walkup
+    Portal = 2
+    Phone = 3
+    Chat = 4
+    FeedbackWidget = 5
+    Yammer = 6
+    AwsCloudwatch = 7
+    Pagerduty = 8
+    Walkup = 9
     Slack = 10
 }
 
 enum FsTicketStatus {
     Open = 2
-    Pending
-    Resolved
+    Pending = 3
+    Resolved = 4
     Closed = 5
 }
 
@@ -82,12 +82,16 @@ function New-FsTicket {
         [string]$ResolutionNotes
     )
 
-    Invoke-FsRequest
+    Invoke-FsRequest '/tickets' `
+        -Method Post `
+        -Confirm:$ConfirmPreference `
+        -WhatIf:$WhatIfPreference
 }
 
 function Get-FsTicket {
     [CmdletBinding(SupportsShouldProcess)]
     param(
+        [Parameter(Position = 0)]
         [int]$Id,
         [FsTicketInclude[]]$Include,
         [string]$Filter,
@@ -99,11 +103,18 @@ function Get-FsTicket {
         [int]$WorkspaceId,
         [FsTicketOrderType]$OrderType
     )
+
+    Invoke-FsRequest '/tickets' `
+        -Method Get `
+        -Confirm:$ConfirmPreference `
+        -WhatIf:$WhatIfPreference
 }
 
 function Set-FsTicket {
     [CmdletBinding(SupportsShouldProcess)]
     param(
+        [Parameter(Mandatory, Position = 0)]
+        [int]$Id,
         [switch]$BypassMandatory,
         [int]$WorkspaceId,
         [FsAttachment[]]$Attachments,
@@ -129,20 +140,52 @@ function Set-FsTicket {
         [int]$Impact,
         [string]$ResolutionNotes
     )
+
+    Invoke-FsRequest "/tickets/$($Id)" `
+        -Method Put `
+        -Confirm:$ConfirmPreference `
+        -WhatIf:$WhatIfPreference
 }
 
 function Move-FsTicket {
+    [CmdletBinding(SupportsShouldProcess)]
+    param(
+        [Parameter(Mandatory, Position = 0)]
+        [int]$Id,
+        [Parameter(Mandatory)]
+        [int]$WorkspaceId,
+        [int]$GroupId,
+        [int]$ResponderId
+    )
 
+    Invoke-FsRequest "/tickets/$($Id)/move_workspace" `
+        -Method Put `
+        -Confirm:$ConfirmPreference `
+        -WhatIf:$WhatIfPreference
 }
 
 function Remove-FsTicket {
+    [CmdletBinding(SupportsShouldProcess)]
+    param(
+        [Parameter(Mandatory, Position = 0)]
+        [int]$Id
+    )
 
-}
-
-function Remove-FsTicketAttachment {
-
+    Invoke-FsRequest "/tickets/$($Id)" `
+        -Method Delete `
+        -Confirm:$ConfirmPreference `
+        -WhatIf:$WhatIfPreference
 }
 
 function Restore-FsTicket {
+    [CmdletBinding(SupportsShouldProcess)]
+    param(
+        [Parameter(Mandatory, Position = 0)]
+        [int]$Id
+    )
 
+    Invoke-FsRequest "/tickets/$($Id)/restore" `
+        -Method Put `
+        -Confirm:$ConfirmPreference `
+        -WhatIf:$WhatIfPreference
 }

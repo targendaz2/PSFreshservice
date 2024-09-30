@@ -1,5 +1,4 @@
-. "$PSScriptRoot/Classes/FsAttachment.ps1"
-. "$PSScriptRoot/Classes/FsTicket.ps1"
 . "$PSScriptRoot/Public/Connection.ps1"
 . "$PSScriptRoot/Public/Request.ps1"
-. "$PSScriptRoot/Public/FsTicket.ps1"
+. "$PSScriptRoot/Public/Tickets/Ticket.ps1"
+. "$PSScriptRoot/Public/Tickets/TicketAttachment.ps1"
